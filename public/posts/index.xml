@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - Programming Brain</title>
+        <link>http://avaheino1.github.io/posts/</link>
+        <description>All Posts | Programming Brain</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 24 May 2022 12:14:28 &#43;0300</lastBuildDate><atom:link href="http://avaheino1.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Welcome to Programming Brain</title>
+    <link>http://avaheino1.github.io/posts/welcome-to-programming-brain/</link>
+    <pubDate>Tue, 24 May 2022 12:14:28 &#43;0300</pubDate>
+    <author>Ava</author>
+    <guid>http://avaheino1.github.io/posts/welcome-to-programming-brain/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
