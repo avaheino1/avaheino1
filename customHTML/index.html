@@ -19,6 +19,10 @@
                 padding: 0 2rem 1vh;
                 font-size: 48px;
             }
+            h1:hover{
+                text-shadow: 2px 2px #00c2cb;
+                cursor:pointer;
+            }
           
             .navigation-bar {
                 background-color: #f8f8f8;
@@ -97,7 +101,7 @@
 
         </style>
     </head>
-<body onLoad="startAnimation()">
+<body>
     <script>
         //set up some variables to store the number of frames in the animation, how long one animation loop will be, how long one image will be
         //visible, which frame we are currently on and time of last update
@@ -167,7 +171,7 @@ function startAnimation() {
     
 </div>
 <div class="header" id="header-container" >
-            <div class="header-section">
+            <div class="header-section" onclick="startAnimation()">
                 <h1>Welcome to the Programming Brain</h1>
             </div>
            
