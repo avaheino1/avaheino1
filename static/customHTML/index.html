@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Programming Brain</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+            }
+            #header-container {
+                margin:0;
+                color: white;
+                background-color: #e11cbe;
+                overflow: hidden;
+                padding: 0 2rem 1vh;
+                font-size: 48px;
+            }
+          
+            .navigation-bar {
+                background-color: #f8f8f8;
+                width: 100%;
+                overflow: hidden;
+                padding: 0.5rem;
+            }
+            .navi-content {
+                
+                padding: 0 2rem 1vh;
+            }
+            .home-link {
+                font-size: 24px;
+                font-weight: bold;
+                line-height: 1.5rem;
+                color: black;
+                text-decoration: none;
+            }
+            .column {
+                width: 30%;
+                background-color: white;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+
+            }
+            .header {
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-template-rows: auto;
+                gap: 10px;
+                padding: 10px;
+            }
+            .header-section {
+                margin-left: 1em;
+                letter-spacing: -0.05em;
+            }
+            .row {
+                padding: 1em;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                width: 70%;
+                margin: auto;
+            }
+            
+            .brain-animation {
+                padding: 1em;
+                grid-column-start: 2;
+                grid-row-start: 1;
+            }
+            .card-title {
+                background-color:#00c2cb;
+                width: 100%;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+            .content-title {
+                color: white;
+                padding: 0;
+                margin: 0;
+                letter-spacing: -0.05em;
+                font-size: 33px;
+            }
+           .card-content {
+                padding-top: 0.75em;
+                padding-left: 1em;
+                padding-right: 1em;
+                padding-bottom: 1em;
+                font-size: 18px;
+                font-family: Arial, Helvetica, sans-serif;
+                line-height: 1.7;
+           }
+
+        </style>
+    </head>
+<body onLoad="startAnimation()">
+    <script>
+        //set up some variables to store the number of frames in the animation, how long one animation loop will be, how long one image will be
+        //visible, which frame we are currently on and time of last update
+        const totalFrames = 5;
+        const animationDuration = 10000;
+        const timePerFrame = animationDuration / totalFrames;
+        let timeWhenLastUpdate;
+        let timeFromLastUpdate;
+        let frameNumber = 1;
+        let allFrames;
+
+        function step(startTime) {
+        // 'startTime' is provided by requestAnimationName function, and we can consider it as current time
+        // first of all we calculate how much time has passed from the last time when frame was update
+
+        //if this is the first frame, aka if the timeWhenLastUpdate variable has not been set yet, 
+        //we set the timeWhenLastUpdate to the startTime
+        // If we are not on the first frame, we set the timeFromLastUpdate to startTime - time of the last update
+        if (!timeWhenLastUpdate) {
+            timeWhenLastUpdate = startTime;
+        } else {
+            timeFromLastUpdate = startTime - timeWhenLastUpdate;
+        }
+
+        // then we check if it is time to update the frame
+        if (timeFromLastUpdate > timePerFrame) {
+        // if it is, we find all the images by their classnames, and
+        //set them invisible
+        allImages = document.getElementsByClassName('brain-animation')
+        for (let i = 0; i < allImages.length; i++) {
+            allImages[i].style.opacity = 0;
+        }
+        //then we find the image we want to show, and set it visible
+        document.getElementById(`brain-animation-${frameNumber}`).style.opacity = 1;
+        
+       
+        // reset the last update time
+        timeWhenLastUpdate = startTime;
+
+        // then increase the frame number or reset it if it is the last frame
+        if (frameNumber >= totalFrames) {
+        frameNumber = 1;
+        } else {
+        frameNumber = frameNumber + 1;
+        }        
+    }
+
+    requestAnimationFrame(step);
+}
+function startAnimation() {
+    requestAnimationFrame(step)
+}
+
+    </script>
+<div class="navigation-bar">
+    <div class="navi-content">
+        <a href="/"
+        title="back home"
+        class="home-link"
+        >
+        { back home }
+        </a>
+    </div>
+    
+ 
+        
+    
+</div>
+<div class="header" id="header-container" >
+            <div class="header-section">
+                <h1>Welcome to the Programming Brain</h1>
+            </div>
+           
+            <img class="brain-animation" 
+                id="brain-animation-1"
+                src="/images/header_animation/1.png" 
+                alt="animation of brain with electricity flowing through it"/>
+            <img class="brain-animation"
+                id="brain-animation-2"
+                src="/images/header_animation/2.png" 
+                alt="animation of brain with electricity flowing through it"/>
+            <img class="brain-animation"
+            id="brain-animation-3"
+                src="/images/header_animation/3.png" 
+                alt="animation of brain with electricity flowing through it"/>
+            <img class="brain-animation"
+            id="brain-animation-4"
+                src="/images/header_animation/4.png" 
+                alt="animation of brain with electricity flowing through it"/>
+            <img class="brain-animation"
+            id="brain-animation-5"
+                src="/images/header_animation/5.png" 
+                alt="animation of brain with electricity flowing through it"/>
+           
+</div>
+<section class="main-content">
+    <div class="row">
+        <div class="column">
+            <div class="card-title">
+                <h2 class="content-title">Programming Brain?</h2>
+            </div>
+            <div class="card-content">
+            <p> The brain behind the programming brain is a graduate student in HCI who has forgotten much what she learned during her undergrad</p>
+        </div>
+        </div>
+        <div class="column">
+            <div class="card-title">
+                <h2 class="content-title">Graduate student life</h2>
+            </div>
+            <div class="card-content">
+            <p> In this blog I write about my life and work as a graduate student in HCI and my adventures in becoming an academic</p>
+        </div>    
+
+        </div>
+        <div class="column">
+            <div class="card-title">
+                <h2 class="content-title">Re-learning CS</h2>
+            </div>
+            <div class="card-content">
+            <p> I will also be writing about my adventures in re-learning CS as I work on online courses to remind myself of all the things I learned during my undergrad and then forgot</p>
+        </div>
+        </div>
+    </div>
+    
+
+
+</section>
+
+</body>
+</html>
